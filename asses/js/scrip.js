@@ -1,26 +1,38 @@
 function verificarAcceso() {
     var codigoAcceso = document.getElementById("codigoAcceso").value;
-    
-    // Verificar el código de acceso en tabla_pin.csv
+    // Obtiene el valor ingresado en el campo de código de acceso.
+
     fetch('archivos/tabla_pin.csv')
         .then(response => response.text())
         .then(data => {
-            const codesTable = data.split('\n');
-            const codeInfo = codesTable.map(row => row.split(','));
+            // Realiza una solicitud para obtener el contenido del archivo 'tabla_pin.csv'.
 
-            // Buscar el código de acceso en la tabla y verificar la disponibilidad
-            const accessData = codeInfo.find(row => row[1] === codigoAcceso);
+            const codesTable = data.split('\n');
+            // Divide el contenido del archivo en filas.
+
+            const codeInfo = codesTable.map(row => row.split(','));
+            // Para cada fila, divide los valores por coma para obtener una matriz bidimensional.
+
+            const accessData = codeInfo.find(row => row[1].toString() === codigoAcceso.toString());
+            // Busca en la matriz de información del código de acceso aquel cuyo valor en la segunda columna coincida con el código ingresado.
+
+            
+            alert(accessData);
+            
 
             if (accessData && accessData[2] === 'false') {
-                // Marcar el código de acceso como ocupado
-                accessData[2] = 'true';
+                // Comprueba si se encontró el código de acceso y si la tercera columna indica que no está ocupado.
 
-                // Actualizar el archivo tabla_pin.csv en GitHub
+                accessData[2] = 'true';
+                // Marca el código de acceso como ocupado actualizando el valor en la tercera columna.
+
                 const updatedCodesTable = codeInfo.map(row => row.join(',')).join('\n');
+                // Convierte la matriz bidimensional actualizada de nuevo en un formato de cadena similar al original.
+
                 fetch('https://api.github.com/repos/tu_usuario/tu_repositorio/contents/tabla_pin.csv', {
                     method: 'PUT',
                     headers: {
-                        'Authorization': 'token TU_TOKEN_DE_ACCESO', // Reemplazar con tu token de acceso
+                        'Authorization': 'token TU_TOKEN_DE_ACCESO',
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
@@ -29,9 +41,12 @@ function verificarAcceso() {
                         sha: 'SHA_ACTUAL_DEL_ARCHIVO',
                     }),
                 })
+                // Realiza una solicitud PUT a la API de GitHub para actualizar el archivo 'tabla_pin.csv'.
+
                 .then(response => {
                     if (response.status === 200 || response.status === 201) {
-                        window.location.href = 'pagina2.html';
+                        window.location.href = 'otherPage.html';
+                        // Si la actualización es exitosa, redirige a la otra página.
                     } else {
                         alert('Error al actualizar el código de acceso.');
                     }
