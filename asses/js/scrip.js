@@ -15,7 +15,6 @@ function verificarAcceso() {
 
             const accessData = codeInfo.find(row => row[1].toString() === codigoAcceso.toString());
             // Busca en la matriz de información del código de acceso aquel cuyo valor en la segunda columna coincida con el código ingresado.
-            alert(accessData)
 
             if (accessData && accessData[2] === 'false') {
                 // Comprueba si se encontró el código de acceso y si la tercera columna indica que no está ocupado.
@@ -30,7 +29,7 @@ function verificarAcceso() {
                 fetch('https://api.github.com/repos/tperezv2004/pag_altodes.github.io/contents/archivos/tabla_pin.csv', {
                     method: 'PUT',  // Método HTTP para la solicitud (PUT para actualizar).
                     headers: {
-                        'Authorization': 'token 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',  // Token de acceso de GitHub. vence el 15 de abril
+                        'Authorization': 'token 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',  // Token de acceso de GitHub. vence el 15 de abril
                         'Content-Type': 'application/json',  // Tipo de contenido que estás enviando (en este caso, JSON).
                     },
                     body: JSON.stringify({
@@ -38,7 +37,7 @@ function verificarAcceso() {
                         content: btoa(newContentBase64),  // Contenido del archivo codificado en Base64.
                     }),
                 })
-                alert("ass")
+                // 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
 
                 // Realiza una solicitud PUT a la API de GitHub para actualizar el archivo 'tabla_pin.csv'.
                 .then(response => {
