@@ -15,7 +15,7 @@ function verificarAcceso() {
 
             const accessData = codeInfo.find(row => row[1].toString() === codigoAcceso.toString());
             // Busca en la matriz de información del código de acceso aquel cuyo valor en la segunda columna coincida con el código ingresado.
-            
+            alert(accessData)
 
             if (accessData && accessData[2] === 'false') {
                 // Comprueba si se encontró el código de acceso y si la tercera columna indica que no está ocupado.
@@ -25,20 +25,20 @@ function verificarAcceso() {
 
                 const updatedCodesTable = codeInfo.map(row => row.join(',')).join('\n');
                 // Convierte la matriz bidimensional actualizada de nuevo en un formato de cadena similar al original.
+                const newContentBase64 = btoa(updatedCodesTable);
 
                 fetch('https://api.github.com/repos/tperezv2004/pag_altodes.github.io/contents/archivos/tabla_pin.csv', {
                     method: 'PUT',  // Método HTTP para la solicitud (PUT para actualizar).
                     headers: {
-                        'Authorization': 'token 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',  // Token de acceso de GitHub. vence el 15 de abril
+                        'Authorization': 'token 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',  // Token de acceso de GitHub. vence el 15 de abril
                         'Content-Type': 'application/json',  // Tipo de contenido que estás enviando (en este caso, JSON).
                     },
                     body: JSON.stringify({
                         message: 'Actualización de códigos de acceso',  // Mensaje asociado con el commit.
-                        content: btoa(updatedCodesTable),  // Contenido del archivo codificado en Base64.
-                        sha: '9469bb1532a23a8c15b89fdf129e3169c7da7736',  // SHA actual del archivo que estás intentando actualizar.
+                        content: btoa(newContentBase64),  // Contenido del archivo codificado en Base64.
                     }),
                 })
-                
+                alert("ass")
 
                 // Realiza una solicitud PUT a la API de GitHub para actualizar el archivo 'tabla_pin.csv'.
                 .then(response => {
@@ -46,15 +46,19 @@ function verificarAcceso() {
                         window.location.href = 'otherPage.html';
                         // Si la actualización es exitosa, redirige a la otra página.
                     } else {
-                        alert('Error al actualizar el código de acceso. hgoassd');
+                        // Si la respuesta no es satisfactoria, intenta obtener el mensaje de error del cuerpo de la respuesta.
+                        response.text().then(errorMessage => {
+                            alert('Error al actu111111alizar el código de acceso: ' + errorMessage);
+                        }).catch(error => {
+                            // Si no se puede obtener el mensaje de error del cuerpo, muestra un mensaje de error genérico.
+                            alert('Error al actualizar el código de acceso. Por favor, verifica la consola para obtener más detalles.');
+                            console.error('Error al obtener el mensaje de error del cuerpo:', error);
+                        });
                     }
                 })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Error al actualizar el código de acceso.');
-                });
+
             } else {
-                alert('Acceso denegado. Verifica el código de acceso.');
+                alert('Acceso denegado. Verifica el código de acceso.estoy aca');
             }
         })
         .catch(error => {
@@ -62,4 +66,3 @@ function verificarAcceso() {
             alert('Error al verificar el código de acceso.');
         });
 }
-
