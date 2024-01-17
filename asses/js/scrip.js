@@ -46,7 +46,7 @@ function verificarAcceso() {
                         window.location.href = 'otherPage.html';
                         // Si la actualización es exitosa, redirige a la otra página.
                     } else {
-                        alert('Error al actualizar el código de acceso.');
+                        alert('Error al actualizar el código de acceso. hgoassd');
                     }
                 })
                 .catch(error => {
