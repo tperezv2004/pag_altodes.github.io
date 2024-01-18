@@ -1,36 +1,65 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" dir="ltr">
 
-<head>  <!--head ya lo entiendo -->
-    <meta charset = "UTF-8">
-    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
-    <link rel = "stylesheet" href = "assets/css/style.css" >
-    <title>Página Principal</title>
+<head>
+    <meta charset="UTF-8">
+    <title> No se q poner </title>
+    <link rel="stylesheet" href="asses/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
-
+   
+   
 <body>
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" required>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" required>
+  <div class="container">
+    <div class="title">Deja tus datos</div>
+    <div class="content">
+      <form action="#">
+        <div class="user-details">
+          
+          <div class="input-box">
+            <span class="details">Nombre</span>
+            <input type="text" id="nombre" placeholder="Ingrese su nombre" required>
+          </div>
+          
+          <div class="input-box">
+            <span class="details">Apellido</span>
+            <input type="text" id="apellido" placeholder="Ingrese su apellido" required>
+          </div>
+          
+          <div class="input-box">
+            <span class="details">Correo</span>
+            <input type="email" id="correo" placeholder="Ingrese su correo" required>
+          </div>
+          
+          <div class="input-box">
+            <span class="details">Número Celular</span>
+            <input type="text" id="celular" placeholder="Ingrese su numero celular" required>
+          </div>
+          
+          <div class="input-box">
+            <span class="details">Cargo</span>
+            <input type="text" id="cargo" placeholder="Ingrese su cargo" required>
+          </div>
+          
+          <div class="input-box">
+            <span class="details">Codigo de acceso</span>
+            <input type="number" id="codigoAcceso" placeholder="Ingrese codigo de acceso" required>
+          </div>
+        
+        </div>
+        
 
-    <label for="rut">RUT:</label>
-    <input type="text" id="rut" required>
+        <div class="button">
+            <input type="submit" value="Register" onclick="verificarDatos()">
+        </div>
 
-    <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-    <input type="text" id="fechaNacimiento" required>
 
-    <label for="cargo">Cargo de Postulación:</label>
-    <input type="text" id="cargo" required>
+      </form>
+      <script src="asses/js/scrip.js"></script>
 
-    <label for="codigoAcceso">Código de Acceso:</label>
-    <input type="number" id="codigoAcceso" required>
-
-    <button onclick="verificarAcceso()">Verificar Acceso</button>
-
-    <script src="asses/js/scrip.js"></script>
+    </div>
+  </div>
 
 </body>
 </html>

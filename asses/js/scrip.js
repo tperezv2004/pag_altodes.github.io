@@ -1,4 +1,5 @@
 function subirTablaPin(updatedCodesTable) {
+    // falta
     return fetch('https://api.github.com/repos/tperezv2004/pag_altodes.github.io/contents/archivos/tabla_pin.csv', {
         method: 'PUT',
         headers: {
@@ -14,8 +15,34 @@ function subirTablaPin(updatedCodesTable) {
 }
 
 
-function verificarAcceso() {
-    var codigoAcceso = document.getElementById("codigoAcceso").value;
+function verificarDatos() {
+
+    var nombre = document.getElementById('nombre').value;
+    var apellido = document.getElementById('apellido').value;
+    var correo = document.getElementById('correo').value;
+    var celular = document.getElementById('celular').value;
+    var cargo = document.getElementById('cargo').value;
+    var codigoAcceso = document.getElementById('codigoAcceso').value;
+
+    if (nombre && apellido && correo && celular && cargo && codigoAcceso) {
+        verificarAcceso(nombre, apellido, correo, celular, cargo, codigoAcceso)
+
+    } else {
+        var mensaje = "Por favor, complete los siguientes datos: ";
+        
+        if (!nombre) mensaje += "Nombre, ";
+        if (!apellido) mensaje += "Apellido, ";
+        if (!correo) mensaje += "Correo, ";
+        if (!celular) mensaje += "Número Celular, ";
+        if (!cargo) mensaje += "Cargo, ";
+        if (!codigoAcceso) mensaje += "Código de Acceso, ";
+
+        document.getElementById('mensajeError').innerText = mensaje.slice(0, -2);
+    }
+}
+
+function verificarAcceso(nombre, apellido, correo, celular, cargo, codigoAcceso) {
+    
 
     fetch('archivos/tabla_pin.csv')
         .then(response => response.text())
@@ -28,19 +55,13 @@ function verificarAcceso() {
 
             if (fila && fila[1].toString().trim() === "false") {
                 fila[1] = true; // falta
-                alert(fila)
 
                 const updatedCodesTable = info_tabla.map(row => row.join(',')).join('\n');
-                alert(updatedCodesTable)
                 //subirTablaPin(updatedCodesTable);
             
-                if (response.status === 200 || response.status === 201) {
-                    window.location.href = 'index2.html';
-
-                } else {
-                    alert('Error al actualizar el código de acceso. hgoassd');
-                }
                 
+                window.location.href = 'index2.html';
+
 
 
             } else {
@@ -51,4 +72,3 @@ function verificarAcceso() {
             alert("estoy aca" + error);
         });
 }
-
