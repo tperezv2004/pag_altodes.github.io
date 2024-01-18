@@ -1,4 +1,5 @@
-id_pin,codigo_acceso,ocupado
-1,123456,false
-2,1234,false
-1,1234567,false
+codigo_acceso,ocupado
+0000,true
+123456,false
+1234,false
+1234567,false
