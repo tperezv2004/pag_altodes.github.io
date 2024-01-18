@@ -1,60 +1,19 @@
 function verificarAcceso() {
     var codigoAcceso = document.getElementById("codigoAcceso").value;
-    // Obtiene el valor ingresado en el campo de código de acceso.
 
     fetch('archivos/tabla_pin.csv')
         .then(response => response.text())
         .then(data => {
-            // Realiza una solicitud para obtener el contenido del archivo 'tabla_pin.csv'.
 
             const codesTable = data.split('\n');
-            // Divide el contenido del archivo en filas.
+            const codeInfo = codesTable.map(row => row.split(',')); // matriz
 
-            const codeInfo = codesTable.map(row => row.split(','));
-            // Para cada fila, divide los valores por coma para obtener una matriz bidimensional.
+            const accessData = codeInfo.find(row => row[1].toString() === codigoAcceso.toString()); // valor en la segunda columna coincida con el numero.
+            alert(accessData)
 
-            const accessData = codeInfo.find(row => row[1].toString() === codigoAcceso.toString());
-            // Busca en la matriz de información del código de acceso aquel cuyo valor en la segunda columna coincida con el código ingresado.
-
-            if (accessData && accessData[2] === 'false') {
-                // Comprueba si se encontró el código de acceso y si la tercera columna indica que no está ocupado.
-
-                accessData[2] = 'true';
-                // Marca el código de acceso como ocupado actualizando el valor en la tercera columna.
-
-                const updatedCodesTable = codeInfo.map(row => row.join(',')).join('\n');
-                // Convierte la matriz bidimensional actualizada de nuevo en un formato de cadena similar al original.
-                const newContentBase64 = btoa(updatedCodesTable);
-
-                fetch('https://api.github.com/repos/tperezv2004/pag_altodes.github.io/contents/archivos/tabla_pin.csv', {
-                    method: 'PUT',  // Método HTTP para la solicitud (PUT para actualizar).
-                    headers: {
-                        'Authorization': 'token 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',  // Token de acceso de GitHub. vence el 15 de abril
-                        'Content-Type': 'application/json',  // Tipo de contenido que estás enviando (en este caso, JSON).
-                    },
-                    body: JSON.stringify({
-                        message: 'Actualización de códigos de acceso',  // Mensaje asociado con el commit.
-                        content: btoa(newContentBase64),  // Contenido del archivo codificado en Base64.
-                    }),
-                })
-                // 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
-
-                // Realiza una solicitud PUT a la API de GitHub para actualizar el archivo 'tabla_pin.csv'.
-                .then(response => {
-                    if (response.status === 200 || response.status === 201) {
-                        window.location.href = 'otherPage.html';
-                        // Si la actualización es exitosa, redirige a la otra página.
-                    } else {
-                        // Si la respuesta no es satisfactoria, intenta obtener el mensaje de error del cuerpo de la respuesta.
-                        response.text().then(errorMessage => {
-                            alert('Error al actu111111alizar el código de acceso: ' + errorMessage);
-                        }).catch(error => {
-                            // Si no se puede obtener el mensaje de error del cuerpo, muestra un mensaje de error genérico.
-                            alert('Error al actualizar el código de acceso. Por favor, verifica la consola para obtener más detalles.');
-                            console.error('Error al obtener el mensaje de error del cuerpo:', error);
-                        });
-                    }
-                })
+            if (accessData && accessData[2].toString().trim() === "false") {
+                accessData[2] = true;
+                window.location.href = 'otherPage.html';
 
             } else {
                 alert('Acceso denegado. Verifica el código de acceso.estoy aca');
