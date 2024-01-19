@@ -1,4 +1,5 @@
-/* fodo:  #71b7e6, #9b59b6 */
+/* fondo:  #71b7e6, #9b59b6 */
+/* Falta imagen */
 
 *{
     margin: 0;  
@@ -148,3 +149,20 @@
       flex-direction: column;
     }
   }
+
+  /* Estilo para posicionar la imagen */
+.imagen {
+  position: absolute; /* Posicionamiento absoluto */
+
+  width: 13.5%; /* Ancho deseado */
+  height: auto; /* Altura deseada */
+
+
+  top: 138px; /* Distancia desde la parte superior */
+
+  left: 892px; /* Distancia desde la izquierda */
+
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+
+}
