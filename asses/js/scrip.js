@@ -23,7 +23,12 @@ function verificarDatos() {
     var celular = document.getElementById('celular').value;
     var cargo = document.getElementById('cargo').value;
     var codigoAcceso = document.getElementById('codigoAcceso').value;
-
+    
+    if (codigoAcceso && codigoAcceso.toString() === "2615"){
+        // aca seria pag mama
+        window.location.href = 'index2.html';
+    }
+    
     if (nombre && apellido && correo && celular && cargo && codigoAcceso) {
         verificarAcceso(nombre, apellido, correo, celular, cargo, codigoAcceso)
 
