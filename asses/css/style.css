@@ -151,18 +151,16 @@
   }
 
   /* Estilo para posicionar la imagen */
+
+/* Estilos para la clase .imagen con ajustes de tamaño y posición */
 .imagen {
-  position: absolute; /* Posicionamiento absoluto */
-
-  width: 13.5%; /* Ancho deseado */
-  height: auto; /* Altura deseada */
-
-
-  top: 138px; /* Distancia desde la parte superior */
-
-  left: 892px; /* Distancia desde la izquierda */
-
+  width: 30%; /* Ancho inicial en porcentaje */
+  height: auto; /* Altura ajustada automáticamente para mantener la proporción */
+  position: relative;
+  top: -340px; /* Centrar en la parte superior */
+  left: 478px; /* Centrar en la izquierda */
+  
   border-radius: 5px;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
-
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
+
