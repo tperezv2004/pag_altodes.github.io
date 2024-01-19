@@ -150,14 +150,17 @@
     }
   }
 
-  .imagen {
-    max-width: 100%; /* Hace que la imagen no sea más ancha que su contenedor */
-    height: auto;
-    position: relative;
-    max-height: 100%; /* Hace que la imagen no sea más alta que su contenedor */
-    border-radius: 5px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-  }
+  /* Estilo para posicionar la imagen */
+
+/* Estilos para la clase .imagen con ajustes de tamaño y posición */
+.imagen {
+  width: 30%; /* Ancho inicial en porcentaje */
+  height: auto; /* Altura ajustada automáticamente para mantener la proporción */
+  position: relative;
+  top: -340px; /* Centrar en la parte superior */
+  left: 478px; /* Centrar en la izquierda */
   
-  
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
 
