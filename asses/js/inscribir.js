@@ -1,5 +1,6 @@
 function subirTablaPin(updatedCodesTable) {
-    // falta
+    // FALTA
+
     return fetch('https://api.github.com/repos/tperezv2004/pag_altodes.github.io/contents/archivos/tabla_pin.csv', {
         method: 'PUT',
         headers: {
@@ -14,6 +15,9 @@ function subirTablaPin(updatedCodesTable) {
     });
 }
 
+function subirTablaUsuario(){
+    // FALTA
+}
 
 function verificarDatos() {
 
@@ -27,28 +31,16 @@ function verificarDatos() {
     if (codigoAcceso && codigoAcceso.toString() === "2615"){
         // aca seria pag mama
         window.location.href = 'index2.html';
-    }
-    
-    if (nombre && apellido && correo && celular && cargo && codigoAcceso) {
-        verificarAcceso(nombre, apellido, correo, celular, cargo, codigoAcceso)
-
     } else {
-        var mensaje = "Por favor, complete los siguientes datos: ";
-        
-        if (!nombre) mensaje += "Nombre, ";
-        if (!apellido) mensaje += "Apellido, ";
-        if (!correo) mensaje += "Correo, ";
-        if (!celular) mensaje += "Número Celular, ";
-        if (!cargo) mensaje += "Cargo, ";
-        if (!codigoAcceso) mensaje += "Código de Acceso, ";
-
-        document.getElementById('mensajeError').innerText = mensaje.slice(0, -2);
+    
+        if (nombre && apellido && correo && celular && cargo && codigoAcceso) {
+            verificarAcceso(nombre, apellido, correo, celular, cargo, codigoAcceso)
+        }
     }
 }
 
 function verificarAcceso(nombre, apellido, correo, celular, cargo, codigoAcceso) {
     
-
     fetch('archivos/tabla_pin.csv')
         .then(response => response.text())
         .then(data => {
@@ -63,7 +55,7 @@ function verificarAcceso(nombre, apellido, correo, celular, cargo, codigoAcceso)
 
                 const updatedCodesTable = info_tabla.map(row => row.join(',')).join('\n');
                 //subirTablaPin(updatedCodesTable);
-            
+                //subirTablaUsuario(x,x,x)
                 
                 window.location.href = 'index2.html';
 

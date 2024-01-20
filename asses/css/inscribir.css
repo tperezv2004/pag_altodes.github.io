@@ -150,16 +150,13 @@
     }
   }
 
-  /* Estilo para posicionar la imagen */
 
-/* Estilos para la clase .imagen con ajustes de tamaño y posición */
 .imagen {
-  width: 30%; /* Ancho inicial en porcentaje */
-  height: auto; /* Altura ajustada automáticamente para mantener la proporción */
+  width: 30%; 
+  height: auto; 
   position: relative;
-  top: -340px; /* Centrar en la parte superior */
-  left: 478px; /* Centrar en la izquierda */
-  
+  top: -340px; 
+  left: 478px;
   border-radius: 5px;
 }
 
