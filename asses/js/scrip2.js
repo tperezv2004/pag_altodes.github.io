@@ -1,15 +1,12 @@
-import { b, a } from "./asses/js/preguntas/pregunta1.js";
-
-let quizData; // Declara la variable fuera del bloque if
-
-if (2 === 2) {
-    quizData = b;
-} else {
-    quizData = a;
+import {b,a} from "./preguntas/pregunta1.js";
+let quizData
+if (2 === 2){
+    quizData = b
+} else{
+     quizData = a
 }
 
 // Ahora puedes usar quizData fuera del bloque if
-console.log(quizData);
 
 const retryButton = document.getElementById('retry');
 const quizContainer = document.getElementById('quiz');
@@ -88,11 +85,11 @@ function displayResult() {
     quizContainer.style.display = 'none';
     submitButton.style.display = 'none';
     retryButton.style.display = 'inline-block';
-    resultContainer.innerHTML = `You scored ${score} out of ${quizData.length}!`;
+    resultContainer.innerHTML = `Puntuacion ${score} de ${quizData.length}`;
 }
 
 function retryQuiz() {
-    window.location.href = 'pag_altodes.github.io/index2.html';
+    alert("FUnciono")
 }
 
 submitButton.addEventListener('click', checkAnswer);
