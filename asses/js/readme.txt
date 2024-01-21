@@ -1,4 +1,13 @@
-ver como se ve en consola: console.error('Error');
+
+carpeta preguntas:
+    formularioX = corresponde a los tipos de formulario q va responder el usuario
+
+manual:
+    1. function 
+    2. function
+    3. function
+    4. function
+    5. function
 
 inscribir: parte de index / FALTA
                
@@ -13,6 +22,6 @@ inscribir: parte de index / FALTA
     envia a index2.html (posible cambiar)
 
 
-carpeta preguntas:
+    
 
 

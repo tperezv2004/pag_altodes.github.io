@@ -1,12 +1,16 @@
-import {b,a} from "./preguntas/pregunta1.js";
+import {quizData1} from "./preguntas/formulario1.js";
+import {quizData2} from "./preguntas/formulario2.js";
+import {quizData3} from "./preguntas/formulario3.js";
+import {quizData4} from "./preguntas/formulario4.js";
+import {quizData5} from "./preguntas/formulario5.js";
+
 let quizData
 if (2 === 2){
-    quizData = b
+    quizData = quizData1
 } else{
-     quizData = a
+    quizData = quizData2
 }
 
-// Ahora puedes usar quizData fuera del bloque if
 
 const retryButton = document.getElementById('retry');
 const quizContainer = document.getElementById('quiz');
@@ -80,6 +84,7 @@ function checkAnswer() {
         }
     }
 }
+// ver c
 
 function displayResult() {
     quizContainer.style.display = 'none';
@@ -89,7 +94,7 @@ function displayResult() {
 }
 
 function retryQuiz() {
-    alert("FUnciono")
+    alert(incorrectAnswers)
 }
 
 submitButton.addEventListener('click', checkAnswer);
