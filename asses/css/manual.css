@@ -15,7 +15,8 @@ body {
     margin-top: 80px;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 20px;
+    border-radius: 5px;
+    position: relative;
 }
 
 h1 {
@@ -44,7 +45,7 @@ h1 {
     border: none;
     cursor: pointer;
     font-size: 16px;
-    border-radius: 4px;
+    border-radius: 5px;
     transition: background-color 0.3s;
     margin-right: 10px;
 }
@@ -61,5 +62,17 @@ h1 {
 
 .hide{
     display: none;
+}
+
+.imagen {
+    max-width: 30%;
+    max-height: 30%;
+    height: auto;
+    width: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 5px;
+
 }
   

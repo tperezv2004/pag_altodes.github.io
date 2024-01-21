@@ -13,4 +13,3 @@ const quizData1 = [
 ];
   
 export {quizData1};
-  

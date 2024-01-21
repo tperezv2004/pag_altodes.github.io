@@ -1,3 +1,3 @@
 
 inscribir: parte de index
-formulario: parte de index2
+manual: parte de index2
