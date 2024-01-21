@@ -1,7 +1,7 @@
 const b = [
   {
     question: 'Como se llaman los gatos?',
-    options: ['cholo y minina', 'gato negro y gato chico', 'cholo y gato chico', 'gato negro y gato chico'],
+    options: ['cholo y minina', 'gato negro y gato chico', 'cholo y gato chico', 'gato negro y minina'],
     answer: 'cholo y minina',
   },
 
