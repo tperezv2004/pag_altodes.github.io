@@ -8,7 +8,7 @@ const quizData1 = [
 
   {
     question: 'Que vamos a comer donde el luchin?',
-    image: "../imagenes/preguntas/formulario1/prueba1.jpg",
+    image: "imagenes/preguntas/formulario1/prueba1.jpg",
 
     options: ['corbatitas', 'lasaña', 'risotto', 'raviolis'],
     answer: 'corbatitas',
