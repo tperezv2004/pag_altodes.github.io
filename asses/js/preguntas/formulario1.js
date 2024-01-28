@@ -1,14 +1,17 @@
 const quizData1 = [
   {
-    question: 'Como se llaman los gatos?',
-    options: ['cholo y minina', 'gato negro y gato chico', 'cholo y gato chico', 'gato negro y minina'],
-    answer: 'cholo y minina',
+    question: 'Cuantas personas eramos ayer?',
+    options: ["15", "14", "16", "17"],
+    answer: "15",
+    image: "imagenes/preguntas/formulario1/prueba2.jpg",
   },
 
   {
     question: 'Que vamos a comer donde el luchin?',
-    options: ['albondigas', 'pastas', 'asado aleman', 'otro'],
-    answer: 'otro',
+    image: "../imagenes/preguntas/formulario1/prueba1.jpg",
+
+    options: ['corbatitas', 'lasaña', 'risotto', 'raviolis'],
+    answer: 'corbatitas',
   }
 ];
   

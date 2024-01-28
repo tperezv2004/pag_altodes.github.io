@@ -17,12 +17,27 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     position: relative;
+    
 }
+
 
 h1 {
     text-align: center;
 }
 
+.miImagen {
+    max-width: 50%;
+    max-height: 50%;
+
+    height: auto;
+    width: auto;
+
+
+    display: none;
+    border-radius: 5px;
+    
+}
+  
 .question {
     font-weight: bold;
     margin-bottom: 10px;
@@ -36,6 +51,7 @@ h1 {
     display: block;
     margin-bottom: 10px;
 }
+
 
 .button {
     display: inline-block;
@@ -64,7 +80,7 @@ h1 {
     display: none;
 }
 
-.imagen {
+.imagen_logo {
     max-width: 30%;
     max-height: 30%;
     height: auto;
@@ -75,4 +91,4 @@ h1 {
     border-radius: 5px;
 
 }
-  
+

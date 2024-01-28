@@ -3,13 +3,9 @@ import {quizData2} from "./preguntas/formulario2.js";
 import {quizData3} from "./preguntas/formulario3.js";
 import {quizData4} from "./preguntas/formulario4.js";
 import {quizData5} from "./preguntas/formulario5.js";
-
 let quizData
-if (2 === 2){
-    quizData = quizData1
-} else{
-    quizData = quizData2
-}
+
+quizData = quizData1
 
 
 const retryButton = document.getElementById('retry');
@@ -32,6 +28,8 @@ function displayQuestion() {
 
     const questionData = quizData[currentQuestion];
     const questionElement = document.createElement('div');
+    const miImagen = document.querySelector(".miImagen");
+
     questionElement.className = 'question';
     questionElement.innerHTML = questionData.question;
 
@@ -39,8 +37,8 @@ function displayQuestion() {
     optionsElement.className = 'options';
 
     const shuffledOptions = [...questionData.options];
-    shuffleArray(shuffledOptions);
-
+    shuffleArray(shuffledOptions);    
+    
     for (let i = 0; i < shuffledOptions.length; i++) {
         const option = document.createElement('label');
         option.className = 'option';
@@ -59,6 +57,17 @@ function displayQuestion() {
 
     quizContainer.innerHTML = '';
     quizContainer.appendChild(questionElement);
+
+    if (questionData.image) {
+
+        miImagen.src = questionData.image;
+        miImagen.style.display = "block";
+        quizContainer.appendChild(miImagen);
+        
+    } else {
+        miImagen.style.display = "none";
+    }
+
     quizContainer.appendChild(optionsElement);
 }
 
@@ -84,7 +93,7 @@ function checkAnswer() {
         }
     }
 }
-// ver c
+
 
 function displayResult() {
     quizContainer.style.display = 'none';
