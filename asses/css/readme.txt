@@ -1,3 +1,4 @@
 
 inscribir: parte de index
-manual: parte de index2
+opciones: parte de index2
+manual: parte de index3

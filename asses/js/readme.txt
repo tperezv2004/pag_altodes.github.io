@@ -1,13 +1,6 @@
-
 carpeta preguntas:
     formularioX = corresponde a los tipos de formulario q va responder el usuario
 
-manual:
-    1. function 
-    2. function
-    3. function
-    4. function
-    5. function
 
 inscribir: parte de index / FALTA
                
@@ -21,6 +14,13 @@ inscribir: parte de index / FALTA
 
     envia a index2.html (posible cambiar)
 
+
+manual parte index3:
+    1. function shuffleArray(x): revuelve las opciones de cada pregunta
+    2. function displayQuestion(): muestra las preguntas, respuestas e imagenes
+    3. function checkAnswer(): revisa las preguntas, si esta mala la guarda
+    4. function displayResult(): otra "pagina" donde se ve los pjs. FALTA
+    5. function retryQuiz(): FALTA
 
     
 

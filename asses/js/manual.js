@@ -7,7 +7,6 @@ let quizData
 
 quizData = quizData1
 
-
 const retryButton = document.getElementById('retry');
 const quizContainer = document.getElementById('quiz');
 const resultContainer = document.getElementById('result');
@@ -94,7 +93,6 @@ function checkAnswer() {
     }
 }
 
-
 function displayResult() {
     quizContainer.style.display = 'none';
     submitButton.style.display = 'none';
@@ -104,7 +102,9 @@ function displayResult() {
 
 function retryQuiz() {
     alert(incorrectAnswers)
+    // FALTA
 }
+
 
 submitButton.addEventListener('click', checkAnswer);
 retryButton.addEventListener('click', retryQuiz);

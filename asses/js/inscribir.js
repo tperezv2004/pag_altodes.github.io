@@ -15,6 +15,7 @@ function subirTablaPin(updatedCodesTable) {
     });
 }
 
+
 function subirTablaUsuario(){
     // FALTA
 }
