@@ -5,7 +5,15 @@ import {quizData4} from "./preguntas/formulario4.js";
 import {quizData5} from "./preguntas/formulario5.js";
 let quizData
 
-quizData = quizData1
+var valorPregunta = localStorage.getItem('valorPregunta');
+
+if (valorPregunta === "1") {
+    quizData = quizData1
+} 
+
+if (valorPregunta === "2") {
+    quizData = quizData2
+} 
 
 const retryButton = document.getElementById('retry');
 const quizContainer = document.getElementById('quiz');
@@ -101,8 +109,12 @@ function displayResult() {
 }
 
 function retryQuiz() {
-    alert(incorrectAnswers)
-    // FALTA
+    var codigoAcceso = localStorage.getItem('codigoAcceso');
+
+    codigoAcceso = codigoAcceso.replace(new RegExp(valorPregunta, "g"), '');
+    localStorage.setItem('codigoAcceso', codigoAcceso);
+
+    window.location.href = 'index2.html';
 }
 
 

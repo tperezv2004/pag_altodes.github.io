@@ -15,19 +15,31 @@ function subirTablaPin(updatedCodesTable) {
     });
 }
 
-
 function subirTablaUsuario(){
     // FALTA
+    valorPregunta
 }
+
+function subirConstantes(nombre, codigoAcceso){
+    localStorage.setItem('nombre', nombre);
+    localStorage.setItem('codigoAcceso', codigoAcceso);
+
+    // q mas?
+
+}
+
 
 function verificarDatos() {
 
-    var nombre = document.getElementById('nombre').value;
-    var apellido = document.getElementById('apellido').value;
-    var correo = document.getElementById('correo').value;
-    var celular = document.getElementById('celular').value;
-    var cargo = document.getElementById('cargo').value;
+    const nombre = document.getElementById('nombre').value;
+    const apellido = document.getElementById('apellido').value;
+    const correo = document.getElementById('correo').value;
+    const celular = document.getElementById('celular').value;
+    const cargo = document.getElementById('cargo').value;
+    
     var codigoAcceso = document.getElementById('codigoAcceso').value;
+    
+    subirConstantes(nombre, codigoAcceso)
     
     if (codigoAcceso && codigoAcceso.toString() === "2615"){
         // aca seria pag mama
@@ -49,18 +61,15 @@ function verificarAcceso(nombre, apellido, correo, celular, cargo, codigoAcceso)
             const tabla = data.split('\n');
             const info_tabla = tabla.map(row => row.split(',')); // matriz
 
-            const fila = info_tabla.find(row => row[0].toString() === codigoAcceso.toString()); // valor en la segunda columna coincida con el numero.
-
+            const fila = info_tabla.find(row => row[0].toString() === codigoAcceso.toString()); 
             if (fila && fila[1].toString().trim() === "false") {
                 fila[1] = true; // falta
 
                 const updatedCodesTable = info_tabla.map(row => row.join(',')).join('\n');
                 //subirTablaPin(updatedCodesTable);
                 //subirTablaUsuario(x,x,x)
-                
+    
                 window.location.href = 'index2.html';
-
-
 
             } else {
                 alert('Acceso denegado. Verifica el código de acceso');
