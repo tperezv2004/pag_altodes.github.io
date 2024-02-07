@@ -1,3 +1,4 @@
+
 document.getElementById("button_w12").disabled = true;
 document.getElementById("button_td").disabled = true;
 
@@ -14,13 +15,31 @@ function desbloqueo(){
 
 }
 
-function comprobar_w12(){
+function comprobar_w12() {
     var valorPregunta = "1"
     localStorage.setItem('valorPregunta', valorPregunta);
 
-    window.location.href = 'index3.html';
+    fetch('../archivos/tabla_pin.csv')
+        .then(response => response.text())
+        .then(data => {
+            const tabla = data.split('\n');
+            const info_tabla = tabla.map(row => row.split(',')); // matriz
+            
+            const nuevaFila = ['NuevoDato1', 'NuevoDato2'];
+        
+            // Agregar la nueva fila a la matriz
+            info_tabla.push(nuevaFila);
+    
+            console.log(info_tabla);
+        })
+        .catch(error => {
+            alert("estoy aca" + error);
+
+        });
 
 }
+
+
 
 function comprobar_td(){
     var valorPregunta = "2"

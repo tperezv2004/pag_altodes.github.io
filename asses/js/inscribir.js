@@ -60,7 +60,6 @@ function verificarAcceso(nombre, apellido, correo, celular, cargo, codigoAcceso)
 
             const tabla = data.split('\n');
             const info_tabla = tabla.map(row => row.split(',')); // matriz
-
             const fila = info_tabla.find(row => row[0].toString() === codigoAcceso.toString()); 
             if (fila && fila[1].toString().trim() === "false") {
                 fila[1] = true; // falta
